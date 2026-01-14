@@ -1,38 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game</title>
+    <title>Galaxy Alien</title>
     <link rel="stylesheet" href="css/game.css">
     <script src="js/fabric.min.js"></script>
     <script src="js/jquery.js"></script>
-    <!-- <script type="text/json" src="gamer.json"></script> -->
     <script src="js/game.js"></script>
 </head>
 <body>
     <canvas id="canvas"></canvas>
     <div class="game-style">
         <div class="game-welcole game-component game-starter">
-            <h2 class="anime">GALAXY ALIAN</h2>
+            <h2 class="anime">GALAXY ALIEN</h2>
+            <p class="intro">Choisissez votre vaisseau, puis commencez la mission.</p>
             <button id="start">COMMENCER</button>
         </div>
-        <div class="game-vaiseau game-component game-starter">
-            <img src="images/gamer/img-1.png" alt="Vaiseau 1">
-            <img src="images/gamer/img-2.png" alt="Vaiseau 2">
-            <img src="images/gamer/img-3.png" alt="Vaiseau 3" class="default-vaiseau">
-            <img src="images/gamer/img-4.png" alt="Vaiseau 4">
-            <img src="images/gamer/img-5.png" alt="Vaiseau 1">
+        <div class="game-vaiseau game-component game-starter" aria-label="Sélection du vaisseau">
+            <img src="images/gamer/img-1.png" alt="Vaisseau 1" data-ship="img1">
+            <img src="images/gamer/img-2.png" alt="Vaisseau 2" data-ship="img2">
+            <img src="images/gamer/img-3.png" alt="Vaisseau 3" class="default-vaiseau" data-ship="img3">
+            <img src="images/gamer/img-4.png" alt="Vaisseau 4" data-ship="img4">
+            <img src="images/gamer/img-5.png" alt="Vaisseau 5" data-ship="img5">
         </div>
 
-        <div class="game-menu">
+        <div class="game-menu" aria-live="polite">
             <ul>
-                <li>Temps écouler: <span class="game-time">0s</span></li>
-                <li>Score: <span>0</span></li>
-                <li>Arme: <span>Laser</span></li>
-                <li>Niveau: <span>1</span></li>
+                <li>Temps écoulé: <span class="game-time">0s</span></li>
+                <li>Score: <span class="score-value">0</span></li>
+                <li>Vie: <span class="health-value">100</span></li>
+                <li>Arme: <span class="weapon-value">Laser</span></li>
+                <li>Niveau: <span class="level-value">1</span></li>
             </ul>
+        </div>
+
+        <div class="game-controls" aria-label="Commandes tactiles">
+            <div class="direction-pad">
+                <button class="control-btn" data-action="up">▲</button>
+                <div class="control-row">
+                    <button class="control-btn" data-action="left">◀</button>
+                    <button class="control-btn" data-action="down">▼</button>
+                    <button class="control-btn" data-action="right">▶</button>
+                </div>
+            </div>
+            <button class="control-btn fire" data-action="fire">TIR</button>
         </div>
     </div>
 </body>
